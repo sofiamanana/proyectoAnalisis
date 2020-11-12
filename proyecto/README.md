@@ -8,7 +8,7 @@
 #### Indicaciones:
 - Programa desarrollado en sistema operativo Ubuntu 20.04.
 - Para ejecutar, crear un ambiente que contenga todos los programas especificados en el archivo requirements.txt. 
-- Para correr el servidor usar </python3 manage.py runserver/> (antes de correrlo, vea instrucciones mas abajo de como conectar la base de datos).
+- Para correr el servidor usar python3 manage.py runserver (antes de correrlo, vea instrucciones mas abajo de como conectar la base de datos).
 
 - Para generar la base de datos: 
 - Instalar la ultima version de Postgresql.
@@ -23,4 +23,6 @@
 
 - Antes de ejecutar el servidor, tiene que generar un insert de un archivo en la tabla aplicaion_file. En la pantalla se muestra el ultimo reporte añadido por lo que la obtencion del objeto File se genera con el ultimo de la tabla, si no hay ningun elemento en la tabla, da error y no deja compilar la pagina. Un comando de ejemplo seria: INSERT INTO aplicaion_file (name,filepath) VALUES ('holamundo.txt','home/ubuntu/Desktop/holamundo.txt').
 
+##### Sugerencia:
+- Crear un super usuario con python3 manage.py createsuperuser, no es estrictamente necesario pero ya entrar a la seccion administrador de Django es necesario.
 
