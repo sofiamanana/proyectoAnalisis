@@ -14,3 +14,4 @@ class Reportador(models.Model):
     clave=models.CharField(max_length=100)
 
 
+

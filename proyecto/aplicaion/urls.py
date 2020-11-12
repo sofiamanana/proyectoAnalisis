@@ -3,5 +3,6 @@ from aplicaion.views import *
 from django.urls import path, include
 
 urlpatterns = [
-    path('', showfile, name='showfile'),
+    path("", login, name='login'),
+    path("subir_reporte.html", showfile, name='showfile')
 ]

@@ -1,31 +1,23 @@
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Upload Files</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <title>SMA</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <nav class="navbar navbar-light bg-light justify-content-between">
-            <img src="../img/1.jpg" style="width:70px;height:70px;">
-            <a class="navbar-brand">Super Intendencia del Medio Ambiente</a>
-            <form class="form-inline">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar Sesion</button>
+        <div id="title">
+            <nav style="background-color: #70A9A1; text-align: center; font: monospace" class="navbar navbar-light bg-gradient-success justify-content-between">
+                <a class="navbar-brand">Super Intendencia del Medio Ambiente</a>
+            </nav>
+        </div>
+        <div>
+            <h2>Iniciar sesión</h2>
+
+            <form class="center" action="login" method="POST">
+                {% csrf_token %}
+                User Name:<input style="font-family: monospace;" type="text" name="username"><br>
+                Password:<input type="password" name="password"><br>
+                <button class="btn btn-success mt-3"><a href="/subir_reporte.html">Iniciar Sesion</a></button>
             </form>
-        </nav>
-
-        <h1>File Uploader</h1>
-        <form enctype="multipart/form-data" method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Upload"/>
-        </form>
-
-        <br><br>
-        <a href="{{ MEDIA_URL }}{{ filepath }}" target="_blank">{{ filename }}</a>
-        <br><br>
-        </p>
-
+        </div>
     </body>
-    <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
-    <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
-</html>
+</html> 
