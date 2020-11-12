@@ -8,7 +8,7 @@
 #### Indicaciones:
 - Programa desarrollado en sistema operativo Ubuntu 20.04.
 - Para ejecutar, crear un ambiente que contenga todos los programas especificados en el archivo requirements.txt. 
-- Para correr el servidor usar python3 manage.py runserver (antes de correrlo, vea instrucciones mas abajo de como conectar la base de datos).
+- Para correr el servidor usar <python3 manage.py runserver> (antes de correrlo, vea instrucciones mas abajo de como conectar la base de datos).
 
 - Para generar la base de datos: 
 - Instalar la ultima version de Postgresql.
