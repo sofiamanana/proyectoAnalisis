@@ -5,25 +5,35 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <nav class="navbar navbar-light bg-light justify-content-between green">
-            <a class="navbar-brand">Super Intendencia del Medio Ambiente</a>
-            <form class="form-inline">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="/">Cerrar Sesion</a></button>
-              <button></button>
-            </form>
-        </nav>
+        <div style="background-color: #70A9A1;">
+            <nav class="navbar navbar-light bg-light justify-content-between green" style="background-color: #70A9A1;">
+                <a class="navbar-brand">Super Intendencia del Medio Ambiente</a>
+                
+                <form class="form-inline">
+                  <button style="background-color: #70A9A1;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="/">Cerrar Sesion</a></button>
+                </form>
+            </nav>
+        </div>
+        <div style="background-color: #70A9A1;">
+            <p style="color: #70A9A1;">  kdsk</p>
+        </div>
+        
 
-        <h2>Subir Reporte</h2>
-        <form enctype="multipart/form-data" method="POST" action="">
+        <h2 style="text-align: center;">Subir Reporte</h2>
+        <form style="margin-left: 10px;" enctype="multipart/form-data" method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Upload"/>
         </form>
 
         <br><br>
-            <a href="{{ MEDIA_URL }}{{ filepath }}" target="_blank">{{ filename }}</a>
+        <div style="background-color: #70A9A1;">
+            <p style="color: antiquewhite;">Ultimo reporte subido:</p>
+        </div>
+            <a style="margin-left: 10px;" href="{{ MEDIA_URL }}{{ filepath }}" target="_blank">{{ filename }}</a>
             <br><br>
-        </p>
+        
+        
 
     </body>
     <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>

@@ -5,19 +5,26 @@
     </head>
     <body>
         <div id="title">
-            <nav style="background-color: #70A9A1; text-align: center; font: monospace" class="navbar navbar-light bg-gradient-success justify-content-between">
+            <nav style="background-color: #70A9A1; text-align: center;" class="navbar navbar-light bg-gradient-success justify-content-between">
                 <a class="navbar-brand">Super Intendencia del Medio Ambiente</a>
             </nav>
         </div>
         <div>
-            <h2>Iniciar sesión</h2>
-
-            <form class="center" action="login" method="POST">
-                {% csrf_token %}
-                User Name:<input style="font-family: monospace;" type="text" name="username"><br>
-                Password:<input type="password" name="password"><br>
-                <button class="btn btn-success mt-3"><a href="/subir_reporte.html">Iniciar Sesion</a></button>
-            </form>
+            <h2 style="text-align: center; font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">Iniciar sesión</h2>
+            <div style="
+                margin: auto;
+                width: 30%;
+                padding: 20px;
+                border-radius: 40px;
+                position: relative;
+                top: 30px;">
+                <form class="center" action="login" method="POST">
+                    {% csrf_token %}
+                    User Name:<input style="font-family: monospace;" type="text" name="username"><br>
+                    Password:<input type="password" name="password"><br>
+                    <button style="background-color: #70A9A1;  margin-left: 100px;" class="btn mt-3"><a style="color: antiquewhite;" href="/subir_reporte.html">Iniciar Sesion</a></button>
+                </form>
+            </div>
         </div>
     </body>
 </html> 
