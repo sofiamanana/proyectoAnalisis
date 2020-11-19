@@ -6,8 +6,15 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib import auth
+from rest_framework import viewsets
+from django.contrib.auth.models import User
+from .serializers import UserSerializer
 
 # Create your views here.
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 def showfile(request):
     lastfile=File.objects.last()

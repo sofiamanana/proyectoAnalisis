@@ -1,7 +1,12 @@
+const divStyle = {
+    background: '#70A9A1',
+    text: 'center',
+  };
+
 function Barra(props){
     return(
         <div>
-            <h1>{ props.texto }</h1>
+            <h1 style={divStyle}>{ props.texto }</h1>
         </div>
     )
 }
