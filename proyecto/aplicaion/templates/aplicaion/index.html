@@ -18,11 +18,10 @@
                 border-radius: 40px;
                 position: relative;
                 top: 30px;">
-                <form class="center" action="login" method="POST">
+                <form class="center" method="POST">
                     {% csrf_token %}
-                    User Name:<input style="font-family: monospace;" type="text" name="username"><br>
-                    Password:<input type="password" name="password"><br>
-                    <button style="background-color: #70A9A1;  margin-left: 100px;" class="btn mt-3"><a style="color: antiquewhite;" href="/subir_reporte.html">Iniciar Sesion</a></button>
+                    {{form.as_p}}
+                    <input type="submit" name="Create_User"><br>
                 </form>
             </div>
         </div>

@@ -3,7 +3,7 @@ from .models import File, Reportador
 from .forms import FileForm
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login as do_login
 from django.contrib import auth
 from rest_framework import viewsets
@@ -32,19 +32,17 @@ def showfile(request):
     return render(request, 'aplicaion/subir_reporte.html', context)
 
 def login(request):
+    
+    form = UserCreationForm()
+    '''
     if request.method == 'POST':
-        username=request.POST['username']
-        password=reques.POST['password']
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+            return redirect('/')
+    '''
+    context = {'form': form}
 
-        x=auth.authenticate(username=username,password=password)
-        
-        if x is None:
-            return redirect('index')
-        else:
-            return redirect('/subir_reporte')
-
-    else:
-        return render(request, 'aplicaion/index.html')
-
-def logout(request):
-    return redirect('')    
+    return render(request, 'aplicaion/index.html',context)  
