@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>SMA</title>
         <meta charset="UTF-8">
+        <title>Upload Files</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
@@ -11,6 +11,9 @@
                 
                 <form class="form-inline">
                   <button style="background-color: #70A9A1;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/logout/">Cerrar Sesion</a></button>
+                  <button style="background-color: #70A9A1; margin-left: 3px;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/home/">Volver al Inicio</a></button>
+        
+
                 </form>
             </nav>
         </div>
@@ -19,11 +22,18 @@
         </div>
         
 
-        <h2 style="text-align: center;">Home</h2>
-        <button style="background-color: #70A9A1;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/report/">Subir Reporte</a></button>
-        <button style="background-color: #70A9A1; margin-left: 3px;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/fiscalizador/">Ver Reportes</a></button>
-       
+        <h2 style="text-align: center;">Subir Reporte</h2>
+        <form style="margin-left: 10px;" enctype="multipart/form-data" method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>*Solo se aceptan archivos Word</p>
+            <button style="background-color: #70A9A1; margin-left: 3px; color: antiquewhite;" class="btn mt-3" type="submit" name='Create_User' onclick="alert('Reporte enviado')" >Subir</button>
+        </form>
+
         <br><br>
+        <div style="background-color: #70A9A1;">
+            <p style="color: antiquewhite;">Ultimo reporte subido:</p>
+        </div>
             <a style="margin-left: 10px;" href="{{ MEDIA_URL }}{{ filepath }}" target="_blank">{{ filename }}</a>
             <br><br>
         

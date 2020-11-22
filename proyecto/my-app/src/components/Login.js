@@ -1,32 +1,39 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from "react";
+import axios from 'axios';
 
 
 class Login extends Component{
 
   state = {
-    credentials: {username: '', password: ''}
+    username: 'a',
+    password: 'a'
+  }
+  componentDidMount(){
+    const cred = {
+      username: 'yuyo',
+      password: 'yuyito123'
+    }
+    axios.post('http://127.0.0.1:8000/api/login/', cred)
+      .then(console.log('AAAAAAAAAAAA'))
+  }
+  /*
+  login = event =>{
+    const cred = {
+      username: 'yuyo',
+      password: 'yuyito123'
+    }
+    axios.post('http://127.0.0.1:8000/api/logout/', cred)
+      .then(console.log('AAAAAAAAAAAA'))
   }
 
-  login = event =>{
-    console.log(this.state.credentials);
-    fetch('http://localhost:8000/auth/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify(this.state.credentials)
-    }).then(
-      data => {
-        console.log(data);
-      }
-    ).catch(error => console.log(error))
-  }
 
   inputChanged = event => {
     const cred = this.state.credentials;
     cred[event.target.name] = event.target.value;
     this.setState({credentials: cred});
   }
-
+*/
     render(){
         return (
             <div>
@@ -34,17 +41,15 @@ class Login extends Component{
               <label>
                 Username:
                 <input type="text" name="username" 
-                value={this.state.credentials.username}
-                onChange={this.inputChanged} />
+                value='a'/>
               </label>
               <br/>
               <label>
                 Password:
                 <input type="password" name="password"
-                value={this.state.credentials.password}
-                onChange={this.inputChanged}/>
+                value='a'/>
               </label>
-              <button onClick={this.login}>Login</button>
+              <button >Login</button>
             </div>
           );
     }

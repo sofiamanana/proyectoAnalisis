@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>SMA</title>
         <meta charset="UTF-8">
+        <title>SMA</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
@@ -11,6 +11,9 @@
                 
                 <form class="form-inline">
                   <button style="background-color: #70A9A1;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/logout/">Cerrar Sesion</a></button>
+                  <button style="background-color: #70A9A1; margin-left: 3px;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/home/">Volver al Inicio</a></button>
+        
+
                 </form>
             </nav>
         </div>
@@ -18,17 +21,18 @@
             <p style="color: #70A9A1;">  kdsk</p>
         </div>
         
-
-        <h2 style="text-align: center;">Home</h2>
-        <button style="background-color: #70A9A1;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/report/">Subir Reporte</a></button>
-        <button style="background-color: #70A9A1; margin-left: 3px;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/fiscalizador/">Ver Reportes</a></button>
-       
-        <br><br>
-            <a style="margin-left: 10px;" href="{{ MEDIA_URL }}{{ filepath }}" target="_blank">{{ filename }}</a>
-            <br><br>
+        <h2 style="text-align: center;">Reportes</h2>
+        <ul>
+            {%for f in files%}
+            <li>
+                <a href="{{ MEDIA_URL }}{{ f.filepath }}" target='_blank' download style="margin-left: 10px;">{{f.name}} </a>
+                <br>
+            </li>
+            {%endfor%}
+        </ul>
         
+        <br><br>       
         
-
     </body>
     <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
     <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
