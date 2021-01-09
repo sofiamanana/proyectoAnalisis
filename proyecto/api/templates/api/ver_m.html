@@ -23,12 +23,13 @@
         
         <h2 style="text-align: center;">Reportes</h2>
         <ul>
-            {%for f in files%}
+            {%for f in mensajes%}
             <li>
-                <p>{{f.id}}.  
-                <a href="{{ MEDIA_URL }}{{ f.filepath }}" target='_blank' download style="margin-left: 10px;">{{f.name}} </a>
+                <p>{{f.id}}. Fiscalizador: {{f.fiscalizador}} 
+                    
                 </p>
-                <p>Reportador: {{f.username}} </p>
+                
+                <p>{{f.mensaje}} </p>
                 <br>
             </li>
             {%endfor%}

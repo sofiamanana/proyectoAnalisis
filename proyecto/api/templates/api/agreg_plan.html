@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>SMA</title>
+        <title>Subir Reporte</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
@@ -18,23 +18,31 @@
             </nav>
         </div>
         <div style="background-color: #70A9A1;">
-            <p style="color: #70A9A1;">  kdsk</p>
+            <p style="color: #70A9A1;">kdsk</p>
         </div>
         
-        <h2 style="text-align: center;">Reportes</h2>
-        <ul>
-            {%for f in files%}
-            <li>
-                <p>{{f.id}}.  
-                <a href="{{ MEDIA_URL }}{{ f.filepath }}" target='_blank' download style="margin-left: 10px;">{{f.name}} </a>
+
+        <h2 style="text-align: center;">Agregar Plan</h2>
+
+        <p style="margin-left: 5px;">Planes actuales: </p>
+        {%for f in plan%}
+            
+                <p style="margin-left: 5px;">{{f.id}}. {{f.nombre}} 
+                    
                 </p>
-                <p>Reportador: {{f.username}} </p>
-                <br>
-            </li>
+                
+                
+            
             {%endfor%}
-        </ul>
+
+        <form style="margin-left: 10px;" enctype="multipart/form-data" method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button style="background-color: #70A9A1; margin-left: 3px; color: antiquewhite;" class="btn mt-3" type="submit" name='Create_User' onclick="alert('Plan agregado')" >Subir</button>
+        </form>
+        <br><br>
+        <div style="background-color: #70A9A1;">
         
-        <br><br>       
         
     </body>
     <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>

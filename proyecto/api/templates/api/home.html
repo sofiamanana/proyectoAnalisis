@@ -10,7 +10,10 @@
                 <a class="navbar-brand" style="font-size: 35px;" >Super Intendencia del Medio Ambiente</a>
                 
                 <form class="form-inline">
+
+                    <button style="background-color: #70A9A1;" class="btn mt-3 ml-1 mr-1" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/ver_m/">Bandeja de Entrada</a></button>
                   <button style="background-color: #70A9A1;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/logout/">Cerrar Sesion</a></button>
+                 
                 </form>
             </nav>
         </div>
@@ -22,7 +25,8 @@
         <h2 style="text-align: center;">Home</h2>
         <button style="background-color: #70A9A1;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/report/">Subir Reporte</a></button>
         <button style="background-color: #70A9A1; margin-left: 3px;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/fiscalizador/">Ver Reportes</a></button>
-       
+        <button style="background-color: #70A9A1; margin-left: 3px;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/enviar_m/">Mensajes</a></button>
+        <button style="background-color: #70A9A1; margin-left: 3px;" class="btn mt-3" type="submit"><a style="color: antiquewhite;" href="http://127.0.0.1:8000/api/agregar_p/">Agregar Plan</a></button>
         <br><br>
             <a style="margin-left: 10px;" href="{{ MEDIA_URL }}{{ filepath }}" target="_blank">{{ filename }}</a>
             <br><br>

@@ -3,9 +3,10 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import File
-from .forms import FileForm
+from .forms import *
 from .decorators import *
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django_globals import globals 
 
 # Create your views here.
 
@@ -58,8 +59,10 @@ def s_reporte(request):
     filename=lastfile.name
 
     form=FileForm(request.POST or None, request.FILES or None)
+    
     if form.is_valid():
         form.save()
+        
 
     context={'filepath': filepath,
             'form': form,
@@ -74,3 +77,52 @@ def v_reporte(request):
     context={'files': files}
     return render(request, 'api/ver_reporte.html', context)
 
+@allowed_users(allowed_roles=['reportador'])
+def modificar(request):
+    files = File.objects.all().filter(username=globals.user)
+
+    form=FileForm(request.POST or None, request.FILES or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+
+    
+    
+    context={'files': files,
+            'form': form}
+    
+    return render(request, 'api/modificar.html', context)
+
+@allowed_users(allowed_roles=['fiscalizador'])
+def env_mensaje(request):
+    
+    form = FormMensaje(request.POST or None, request.FILES or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+
+    context={'form': form}
+    return render(request, 'api/enviar_m.html', context)
+
+def ver_mensajes(request):
+    mensajes = Mensajes.objects.all()
+    context = {
+        'mensajes': mensajes
+    }
+
+    return render(request, 'api/ver_m.html', context)
+
+@allowed_users(allowed_roles=['fiscalizador'])
+def agregar_plan(request):
+    plan = Plan.objects.all()
+    form = FormPlan(request.POST or None, request.FILES or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+    
+    context = {
+        'plan': plan,
+        'form': form
+    }
+
+    return render(request, 'api/agreg_plan.html', context)

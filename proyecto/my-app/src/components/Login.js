@@ -6,17 +6,28 @@ import axios from 'axios';
 class Login extends Component{
 
   state = {
-    username: 'a',
-    password: 'a'
+    username: ''
   }
+
+  handleChange = event =>{
+    this.setState({username: event.target.value});
+  }
+
+  handleSubmit = event =>{
+    event.preventDefault();
+  }
+
   componentDidMount(){
     const cred = {
-      username: 'yuyo',
-      password: 'yuyito123'
+      username: this.state.username
     }
-    axios.post('http://127.0.0.1:8000/api/login/', cred)
-      .then(console.log('AAAAAAAAAAAA'))
+    axios.post('https://jsonplaceholder.typicode.com/users', cred)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
+
   /*
   login = event =>{
     const cred = {
@@ -38,18 +49,17 @@ class Login extends Component{
         return (
             <div>
               <h1>Login User</h1>
-              <label>
-                Username:
-                <input type="text" name="username" 
-                value='a'/>
-              </label>
-              <br/>
-              <label>
-                Password:
-                <input type="password" name="password"
-                value='a'/>
-              </label>
-              <button >Login</button>
+              <form onSubmit={this.handleSubmit}>
+                <label>
+                  Username:
+                  <input type="text" name="username" 
+                  onChange={this.handleChange}/>
+                </label>
+                <br/>
+                <button type="submit"> Login </button>
+              </form>
+              
+              
             </div>
           );
     }
